@@ -1,0 +1,21 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+class Envio_email_model extends CI_Model
+{
+	public function constgruct()
+	{
+		parent::__construct();
+	}
+
+	//se realiza la insercion de los datos y se devuelve
+	//el resultado al controlador para enviar el correo si todo ha ido bien
+	function new_user ($nombre,$correo,$nick,$password)
+	{
+			$data = array(
+					'nombre' =>$nombre,
+					'correo'=> $correo,
+					'nick'=> $nick,
+					'password' =>$password
+				);
+				return $this->db->insert('usuarios',$data);
+	}
+}
